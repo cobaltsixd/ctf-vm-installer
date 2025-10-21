@@ -1,0 +1,2 @@
+Find the hidden message in the PNG. POST {"candidate":"..."} to /submit.
+Place your image as hidden.png in this folder (not included in repo).
