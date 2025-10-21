@@ -77,7 +77,7 @@ if ! command -v pip3 >/dev/null 2>&1; then
 fi
 
 # 6) Ensure pycryptodome is present (used by generate_flags.py)
-eecho "[*] Ensuring cryptography module available..."
+echo "[*] Ensuring cryptography module available..."
  if ! python3 -c "import Cryptodome" >/dev/null 2>&1; then
    if command -v apt-get >/dev/null 2>&1; then
      echo "[*] Installing via apt: python3-pycryptodomex"
