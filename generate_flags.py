@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse, base64, json, secrets
 from pathlib import Path
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 
 CHAL_DIRS = {
     "crypto": "challenges/crypto_challenge",

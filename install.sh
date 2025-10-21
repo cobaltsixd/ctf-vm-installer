@@ -77,23 +77,23 @@ if ! command -v pip3 >/dev/null 2>&1; then
 fi
 
 # 6) Ensure pycryptodome is present (used by generate_flags.py)
-echo "[*] Ensuring pycryptodome is installed for Python..."
-if ! python3 -c "import Crypto" >/dev/null 2>&1; then
-  if command -v apt-get >/dev/null 2>&1; then
-    echo "[*] Installing via apt: python3-pycryptodome"
-    sudo apt-get update -y
-    sudo apt-get install -y python3-pycryptodome
-  else
-    echo "[*] No apt; creating a local venv for the generator..."
-    python3 -m venv .venv_gen
-    . .venv_gen/bin/activate
-    pip install pycryptodome
-    GEN_PY=".venv_gen/bin/python3"
-  fi
-fi
+eecho "[*] Ensuring cryptography module available..."
+ if ! python3 -c "import Cryptodome" >/dev/null 2>&1; then
+   if command -v apt-get >/dev/null 2>&1; then
+     echo "[*] Installing via apt: python3-pycryptodomex"
+     sudo apt-get update -y
+     sudo apt-get install -y python3-pycryptodomex
+   else
+     echo "[*] Creating local venv for cryptodome..."
+     python3 -m venv .venv_gen
+     . .venv_gen/bin/activate
+     pip install pycryptodomex
+     GEN_PY=".venv_gen/bin/python3"
+   fi
+ fi
 
-# later, when running the generator:
-${GEN_PY:-python3} generate_flags.py --out-dir ./challenges
+ # When running the generator later, use:
+ ${GEN_PY:-python3} generate_flags.py --out-dir ./challenges
 
 # 7) Create flags dir
 mkdir -p flags
