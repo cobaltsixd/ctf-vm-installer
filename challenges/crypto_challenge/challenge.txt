@@ -1,2 +1,0 @@
-Crypto puzzle: decode the provided string and find the secret key.
-POST JSON {"solution": "..."} to /submit.

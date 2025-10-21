@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file, jsonify
-from Cryptodome.Cipher import AES
+from Crypto.Cipher import AES
 import subprocess, base64, os
 
 app = Flask(__name__)
@@ -28,8 +28,7 @@ def submit():
         r = subprocess.run(["./checker", guess], capture_output=True, timeout=3)
         if b"OK" in r.stdout:
             flag = decrypt_flag()
-            return (jsonify({"status":"correct","flag":flag}) if flag
-                    else (jsonify({"status":"error"}),500))
+            return jsonify({"status":"correct","flag":flag}) if flag else (jsonify({"status":"error"}),500)
         return jsonify({"status":"incorrect"})
     except Exception as e:
         return jsonify({"status":"error","msg":str(e)}),500

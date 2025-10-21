@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from Cryptodome.Cipher import AES
+from Crypto.Cipher import AES
 import base64, os
 
 app = Flask(__name__)
@@ -24,8 +24,8 @@ def decrypt_flag():
 @app.post("/submit")
 def submit():
     sol = (request.get_json() or {}).get("solution","").strip()
-    if sol == "solve-me":  # placeholder; swap for your real validator
+    # TODO: replace with your real validator logic
+    if sol == "solve-me":
         flag = decrypt_flag()
-        return (jsonify({"status":"correct","flag":flag}) if flag
-                else (jsonify({"status":"error"}),500))
+        return jsonify({"status":"correct","flag":flag}) if flag else (jsonify({"status":"error"}),500)
     return jsonify({"status":"incorrect"})

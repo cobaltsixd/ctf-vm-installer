@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from Cryptodome.Cipher import AES
+from Crypto.Cipher import AES
 import base64, os
 
 app = Flask(__name__)
@@ -22,6 +22,7 @@ def decrypt_flag():
 @app.post("/submit")
 def submit():
     ans = (request.get_json() or {}).get("answer","").strip().lower()
-    if ans == "alice":  # placeholder; change for your logic puzzle
+    # TODO: adjust puzzle & correct answer
+    if ans == "alice":
         return jsonify({"status":"correct","flag":decrypt_flag()})
     return jsonify({"status":"incorrect"})

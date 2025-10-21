@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, abort, send_file
-from Cryptodome.Cipher import AES
-import base64, os
+from Crypto.Cipher import AES
+import base64, os, os.path
 
 app = Flask(__name__)
 FLAG_ENC = open("flag.enc").read().strip()
@@ -26,9 +26,8 @@ def decrypt_flag():
 @app.post("/submit")
 def submit():
     candidate = (request.get_json() or {}).get("candidate","").strip()
-    if candidate == "extract-me":  # placeholder; replace with your expected string
+    # TODO: replace with your actual expected extraction string
+    if candidate == "extract-me":
         flag = decrypt_flag()
-        return (jsonify({"status":"correct","flag":flag}) if flag
-                else (jsonify({"status":"error"}),500)
-               )
+        return jsonify({"status":"correct","flag":flag}) if flag else (jsonify({"status":"error"}),500)
     return jsonify({"status":"incorrect"})

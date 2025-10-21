@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, send_file, abort
-from Cryptodome.Cipher import AES
+from Crypto.Cipher import AES
 import base64, os
 
 app = Flask(__name__)
@@ -24,6 +24,7 @@ def decrypt_flag():
 @app.post("/submit")
 def submit():
     candidate = (request.get_json() or {}).get("candidate","").strip()
-    if candidate == "hidden-string":  # placeholder; replace with your expected extraction
+    # TODO: replace with actual expected message from your stego
+    if candidate == "hidden-string":
         return jsonify({"status":"correct","flag":decrypt_flag()})
     return jsonify({"status":"incorrect"})
