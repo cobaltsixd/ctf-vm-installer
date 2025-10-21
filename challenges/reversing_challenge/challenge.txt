@@ -1,0 +1,2 @@
+Reverse the 'checker' binary. Submit {"guess":"..."} to /submit.
+Download the binary from /download.

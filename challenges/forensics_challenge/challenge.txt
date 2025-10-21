@@ -1,0 +1,1 @@
+Analyze the PCAP (download from /download once added). Extract the hidden string and POST {"candidate":"..."} to /submit.
