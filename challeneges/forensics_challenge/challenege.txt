@@ -1,0 +1,2 @@
+Analyze the provided PCAP (placeholder). Extract the hidden string and POST {"candidate":"..."} to /submit.
+Download will be provided later at /download once you drop a real pcap file.

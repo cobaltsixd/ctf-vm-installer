@@ -1,0 +1,1 @@
+Read /story and deduce the answer. POST {"answer":"..."} to /submit.

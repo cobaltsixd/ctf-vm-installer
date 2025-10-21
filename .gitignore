@@ -1,0 +1,7 @@
+/flags/
+/flags/meta.json
+*.env
+__pycache__/
+*.pyc
+docker-compose.override.yml
+.DS_Store

@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  crypto:
+    build: ./challenges/crypto_challenge
+    ports: ["8001:8080"]
+    networks: [ctfnet]
+  reversing:
+    build: ./challenges/reversing_challenge
+    ports: ["8002:8080"]
+    networks: [ctfnet]
+  forensics:
+    build: ./challenges/forensics_challenge
+    ports: ["8003:8080"]
+    networks: [ctfnet]
+  stego:
+    build: ./challenges/stego_challenge
+    ports: ["8004:8080"]
+    networks: [ctfnet]
+  weblogic:
+    build: ./challenges/web_logic_challenge
+    ports: ["8005:8080"]
+    networks: [ctfnet]
+
+networks:
+  ctfnet:
+    driver: bridge

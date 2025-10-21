@@ -1,0 +1,18 @@
+# This is what install.sh generates (with your real keys).
+version: '3.8'
+services:
+  crypto:
+    environment:
+      - CHAL_KEY_B64=base64-key-here
+  reversing:
+    environment:
+      - CHAL_KEY_B64=base64-key-here
+  forensics:
+    environment:
+      - CHAL_KEY_B64=base64-key-here
+  stego:
+    environment:
+      - CHAL_KEY_B64=base64-key-here
+  weblogic:
+    environment:
+      - CHAL_KEY_B64=base64-key-here

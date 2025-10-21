@@ -1,0 +1,2 @@
+Reverse the 'checker' binary. Submit the expected password as {"guess": "..."} to /submit.
+Download the binary from /download.
